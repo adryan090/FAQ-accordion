@@ -39,9 +39,9 @@ body {
 .card {
   width: 60rem;
   background-color: hsl(0, 0%, 100%);
-
   padding: 4.4rem;
   border-radius: 1.5rem;
+  box-shadow: 8px 32px 32px hsla(292, 72%, 24%, 0.1);
 }
 
 .title-container {
