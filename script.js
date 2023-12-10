@@ -2,8 +2,8 @@ const questions = document.querySelectorAll(".question");
 const minusPath = "assets/images/icon-minus.svg";
 const plusPath = "assets/images/icon-plus.svg";
 
-questions.forEach((question, ind) => {
-  question.addEventListener("click", (e) => {
+questions.forEach((question) => {
+  question.addEventListener("click", () => {
     const answer = question.closest(".element").querySelector(".answer");
     const button = question.querySelector(".open-close-btn");
     openClose(answer, button);
@@ -19,8 +19,11 @@ document.activeElement.addEventListener("keypress", (e) => {
 });
 
 function openClose(answer, button) {
-  if (button.getAttribute("src") === minusPath)
+  if (answer.getAttribute("aria-hidden") === "true") {
+    button.setAttribute("src", minusPath);
+    answer.setAttribute("aria-hidden", false);
+  } else {
     button.setAttribute("src", plusPath);
-  else button.setAttribute("src", minusPath);
-  answer.classList.toggle("active");
+    answer.setAttribute("aria-hidden", true);
+  }
 }
